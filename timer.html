@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Example</title>
+  <style>
+    #countdown {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="countdown"></div>
+
+<script>
+function countdown(number, callback) {
+  if (number > 0) {
+    document.getElementById('countdown').innerText = number;
+    setTimeout(function() {
+      countdown(number - 1, callback);
+    }, 1000);
+  } else {
+    callback();
+  }
+}
+
+function displayMessage() {
+  document.getElementById('countdown').innerText = 'Happy Independence!';
+}
+
+// Start the countdown
+countdown(10, displayMessage);
+</script>
+
+</body>
+</html>
